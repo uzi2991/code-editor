@@ -9,10 +9,12 @@
   },
   "dependencies": {
     "@monaco-editor/react": "^4.4.5",
+    "@types/prettier": "^2.6.3",
     "axios": "^0.27.2",
     "esbuild-wasm": "0.14.47",
     "localforage": "^1.10.0",
     "monaco-editor": "^0.33.0",
+    "prettier": "^2.7.1",
     "re-resizable": "^6.9.9",
     "react": "^18.0.0",
     "react-dom": "^18.0.0"

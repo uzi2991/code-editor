@@ -64,11 +64,6 @@ export const AppProvider = ({ children }: { children: ReactNode }) => {
   }, [code['javascript']]);
 
   useEffect(() => {
-    console.log('Logs changed');
-    console.log(logs);
-  }, [logs]);
-
-  useEffect(() => {
     const listener = ({ data }: MessageEvent) => {
       if (data.from === 'iframe') {
         setLogs(data.logs);

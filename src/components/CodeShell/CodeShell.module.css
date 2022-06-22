@@ -1,0 +1,7 @@
+.tab {
+  @apply px-2 py-1 bg-gray-700;
+}
+
+.active {
+  @apply bg-gray-800;
+}

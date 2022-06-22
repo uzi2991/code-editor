@@ -44,15 +44,15 @@ const Preview = () => {
 
           window.addEventListener('message', (event) => {
             const handleError = (err) => {
-              const root = document.querySelector('#root');
-              root.innerHTML = '<div style="color: red;"><h4>Runtime Error</h4>' + err + '</div>';
+              console.error(String(err));
             }
 
             window.addEventListener('error', (event) => {
               event.preventDefault();
               handleError(event.error);
             });
-
+            
+            window.top.postMessage({from: "iframe", logs}, "*");
             try {
               eval(event.data);
             } catch (err) {
@@ -73,7 +73,7 @@ const Preview = () => {
   }, [bundle.code]);
 
   return (
-    <div className={`relative w-full h-full ${styles.preview}`}>
+    <div className={`relative w-full h-full ${styles.preview} bg-white`}>
       <iframe
         title="preview"
         ref={iframe}
@@ -81,13 +81,6 @@ const Preview = () => {
         sandbox="allow-scripts"
         srcDoc={html}
       />
-      {bundle.err && (
-        <div className="absolute z-10 left-0 top-0 w-full h-full flex items-center justify-center">
-          <div className="text-red-600 bg-orange-100 px-8 py-4 text-xl">
-            {bundle.err}
-          </div>
-        </div>
-      )}
     </div>
   );
 };

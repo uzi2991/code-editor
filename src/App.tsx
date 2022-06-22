@@ -16,12 +16,10 @@ const App = () => {
   }, [monaco]);
 
   return (
-    <>
-      <div className="w-full flex py-16 px-16">
-        <Sidebar />
-        <CodeShell />
-      </div>
-    </>
+    <div className="w-full flex my-8 mx-auto max-w-screen-xl">
+      <Sidebar />
+      <CodeShell />
+    </div>
   );
 };
 
